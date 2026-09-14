@@ -1,10 +1,12 @@
 import { useSSO } from "@clerk/expo";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Alert } from "react-native";
 
 export default function useSocialAuth() {
   const [isLoading, setIsLoading] = useState(false);
   const { startSSOFlow } = useSSO();
+  const router = useRouter();
 
   const handleSocialAuth = async (strategy: "oauth_google" | "oauth_apple") => {
     setIsLoading(true);
@@ -14,6 +16,8 @@ export default function useSocialAuth() {
 
       if (createdSessionId && setActive) {
         await setActive({ session: createdSessionId });
+
+        router.replace("/(tabs)");
       }
     } catch (error) {
       console.error("Error in social auth", error);
