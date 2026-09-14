@@ -1,15 +1,15 @@
+import SignOutButton from "@/components/SignOutButton";
 import { useClerk } from "@clerk/expo";
 import { View, Text, Button } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const HomeScreen = () => {
-  const { signOut } = useClerk();
-
   return (
-    <View>
+    <SafeAreaView>
       <Text>HomeScreen</Text>
 
-      <Button title="Logout" onPress={() => signOut()} />
-    </View>
+      <SignOutButton />
+    </SafeAreaView>
   );
 };
 
