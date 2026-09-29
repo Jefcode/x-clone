@@ -1,6 +1,6 @@
 import { useAuth } from "@clerk/expo";
 import axios, { type AxiosInstance } from "axios";
-const API_BASE_URL = "https://x-clone-ten-delta.vercel.app/api";
+export const API_BASE_URL = "http://10.204.218.234:5001/api";
 
 export const createApiClient = (
   getToken: () => Promise<string | null>,

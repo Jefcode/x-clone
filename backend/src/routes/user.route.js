@@ -1,5 +1,9 @@
 import express from "express";
 import {
+  ClerkExpressWithAuth,
+  ClerkExpressRequireAuth,
+} from "@clerk/clerk-sdk-node";
+import {
   followUser,
   getCurrentUser,
   getUserProfile,
